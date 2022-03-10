@@ -1,0 +1,40 @@
+﻿@model ProgrammingTest.Data.Titleauthor
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Titleauthor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AuId" />
+            <input type="hidden" asp-for="TitleId" />
+            <div class="form-group">
+                <label asp-for="AuOrd" class="control-label"></label>
+                <input asp-for="AuOrd" class="form-control" />
+                <span asp-validation-for="AuOrd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Royaltyper" class="control-label"></label>
+                <input asp-for="Royaltyper" class="form-control" />
+                <span asp-validation-for="Royaltyper" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

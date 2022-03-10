@@ -1,0 +1,43 @@
+﻿@using ProgrammingTest.Data
+@model IEnumerable<ProgrammingTest.Data.Author>
+
+@{
+    ViewData["Title"] = "Authors";
+}
+
+<h1>Authors List</h1>
+
+@*@Html.DropDownList("Authors", 
+                    new SelectList(Model),
+                    "Select Author",
+                    new { @class = "form-control" })*@
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Last Name
+            </th>
+            <th>
+                First Name
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuLname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuFname)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.AuId">Titles</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
